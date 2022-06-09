@@ -2,8 +2,15 @@ const mongoose = require('mongoose')
 
 
 const ProductSchema = new mongoose.Schema({
-    name: String,
-    price: Number
+    name: {
+        type: String,
+        required: true,
+        minlength: 3
+    },
+    price: {
+        type: Number,
+        required: true,
+    }
 })
 
 const ProductModel = mongoose.model('Product', ProductSchema)

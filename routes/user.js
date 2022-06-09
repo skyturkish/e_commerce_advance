@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const UserService = require('../services/user-service')
-const SellerService = require('../services/seller-service')
+const ProductService = require('../services/product-service')
 
 
 router.get('/all', async (req, res) => {
@@ -25,10 +25,10 @@ router.delete('/:id', async (req, res) => {
     res.send(user) // send kısmı bizim konsole yazdıktan sonra bize cevap dönen yer
 })
 
-router.post('/:id/sellers', async (req, res) => {
+router.post('/:id/product', async (req, res) => {
     const user = await UserService.find(req.params.id)
-    const seller = await SellerService.find(req.body.seller)
-    await UserService.attendSeller(user, seller)
+    const product = await ProductService.find(req.body.product)
+    await UserService.addProduct(user, product)
 
     res.send(user)
 })

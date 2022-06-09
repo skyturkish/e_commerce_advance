@@ -6,7 +6,7 @@ const SellerSchema = new mongoose.Schema({
     products: String,
     productList: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'user',
+        ref: 'product',
         autopopulate: {
             maxDepth: 1
         }

@@ -10,12 +10,11 @@ const UserSchema = new mongoose.Schema({
     age: {
         type: Number,
         required: true,
-        min: 18,
-        default: 19
+        default: 18
     },
     shoppingList: [{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'seller',
+        ref: 'product',
         autopopulate: {
             maxDepth: 1
         }
